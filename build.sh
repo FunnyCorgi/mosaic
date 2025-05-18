@@ -22,7 +22,6 @@ EM_FLAGS="
   -s FULL_ES3=1
   -s ALLOW_MEMORY_GROWTH=1
   --preload-file assets
-  --shell-file shell.html
 "
 
 # Linker output flags

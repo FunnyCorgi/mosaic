@@ -7,14 +7,15 @@
 namespace {
     SDL_Texture* gateTexture = nullptr;
     SDL_Texture* logoTexture = nullptr;
-    TTF_Font* font = nullptr;
+    TTF_Font* font_SourceCodePro = nullptr;
+    TTF_Font* font_PressStart2P = nullptr;
 
     SDL_Rect gateRect = { 100, 100, 128, 64 };  // initial position + size
     SDL_Rect logoRect = { 20, 20, 300, 100 };   // top-left logo position
 }
 
 namespace UI {
-    
+
     bool init(SDL_Renderer* renderer) {
         // Load gate image
         SDL_Surface* gateSurface = IMG_Load("assets/png/Gate.png");
@@ -34,13 +35,17 @@ namespace UI {
         logoTexture = SDL_CreateTextureFromSurface(renderer, logoSurface);
         SDL_FreeSurface(logoSurface);
 
-        // Load font
-        font = TTF_OpenFont("assets/fonts/PressStart2P.ttf", 12);
+        // Load fonts
+        font_PressStart2P = TTF_OpenFont("assets/fonts/PressStart2P.ttf", 12);
         if (!font) {
             std::cerr << "Failed to load font: " << TTF_GetError() << "\n";
             return false;
         }
-
+        font_SourceCodePro = TTF_OpenFont("assets/fonts/SourceCodePro-Regulare", 12);
+        if (!font) {
+            std::cerr << "Failed to load font: " << TTF_GetError() << "\n";
+            return false;
+        }
         return true;
     }
 
@@ -50,6 +55,7 @@ namespace UI {
 
     void update() {
         // Could add animations or state updates later
+        this.render();
     }
 
     void render(SDL_Renderer* renderer) {
