@@ -27,7 +27,7 @@ namespace UI {
         SDL_FreeSurface(gateSurface);
 
         // Load logo image
-        SDL_Surface* logoSurface = IMG_Load("assets/png/MosaicLogo.png");
+        SDL_Surface* logoSurface = IMG_Load("assets/png/Mosaic_Logo.png");
         if (!logoSurface) {
             std::cerr << "Failed to load MosaicLogo.png: " << IMG_GetError() << "\n";
             return false;
@@ -36,12 +36,12 @@ namespace UI {
         SDL_FreeSurface(logoSurface);
 
         // Load fonts
-        font_PressStart2P = TTF_OpenFont("assets/fonts/PressStart2P.ttf", 12);
+        font_PressStart2P = TTF_OpenFont("assets/fonts/PressStart2P-Regular.ttf", 12);
         if (!font) {
             std::cerr << "Failed to load font: " << TTF_GetError() << "\n";
             return false;
         }
-        font_SourceCodePro = TTF_OpenFont("assets/fonts/SourceCodePro-Regulare", 12);
+        font_SourceCodePro = TTF_OpenFont("assets/fonts/SourceCodePro-Regular", 12);
         if (!font) {
             std::cerr << "Failed to load font: " << TTF_GetError() << "\n";
             return false;
